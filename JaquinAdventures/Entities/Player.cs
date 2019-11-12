@@ -1,4 +1,4 @@
-﻿using JaquinAdventures.Components;
+﻿using JaquinAdventures.Interfaces;
 using Otter;
 
 namespace JaquinAdventures.Entities
@@ -7,9 +7,9 @@ namespace JaquinAdventures.Entities
     {
         public Image Sprite { get; set; }
         
-        public Player(IMoveSystem moveSystem)
+        public Player(IMovement movement)
         {
-            AddComponent((Component)moveSystem);
+            AddComponent((Component)movement);
             
             Sprite = Image.CreateCircle(64, Color.White);
             AddGraphic(Sprite);

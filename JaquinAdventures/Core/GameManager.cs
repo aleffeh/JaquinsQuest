@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using JaquinAdventures.Interfaces;
 using JaquinAdventures.Scenes;
 using Otter;
 

@@ -7,18 +7,26 @@
       <e p="JaquinAdventures" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Components" t="Include">
-          <e p="IAMoveSystem.cs" t="Include" />
-          <e p="IMoveSystem.cs" t="Include" />
-          <e p="MoveSystem.cs" t="Include" />
-          <e p="MoveSystemWithSprint.cs" t="Include" />
+          <e p="Movement.cs" t="Include" />
+          <e p="MovementIA.cs" t="Include" />
+          <e p="MovementWithSprint.cs" t="Include" />
+          <e p="WasdInput.cs" t="Include" />
         </e>
-        <e p="ContainerConfig.cs" t="Include" />
         <e p="Core" t="Include">
+          <e p="Containers" t="Include">
+            <e p="ContainerConfig.cs" t="Include" />
+            <e p="FactoryContainer.cs" t="Include" />
+          </e>
           <e p="GameManager.cs" t="Include" />
-          <e p="IApplication.cs" t="Include" />
         </e>
         <e p="Entities" t="Include">
           <e p="Player.cs" t="Include" />
+        </e>
+        <e p="Factories" t="Include" />
+        <e p="Interfaces" t="Include">
+          <e p="IApplication.cs" t="Include" />
+          <e p="IInputHandler.cs" t="Include" />
+          <e p="IMovement.cs" t="Include" />
         </e>
         <e p="JaquinAdventures.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />

@@ -1,8 +1,8 @@
 ﻿using Otter;
 
-namespace JaquinAdventures.Components
+namespace JaquinAdventures.Interfaces
 {
-    public class IAMoveSystem : Component, IMoveSystem
+    public class MovementIA : Component, IMovement
     {
         public override void Update()
         {
