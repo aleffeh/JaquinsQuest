@@ -1,8 +1,10 @@
 ﻿using Autofac;
+using JaquinAdventures.Components;
 using JaquinAdventures.Entities;
 using JaquinAdventures.Interfaces;
 using JaquinAdventures.Scenes;
 using Otter;
+using Movement = JaquinAdventures.Components.Movement;
 
 namespace JaquinAdventures.Core.Containers
 {
@@ -20,8 +22,9 @@ namespace JaquinAdventures.Core.Containers
             
             builder.RegisterType<MainScene>();
             builder.RegisterType<Player>();
-            builder.RegisterType<MovementWithSprint>().As<IMovement>();
             builder.RegisterType<WasdInput>().As<IInputHandler>();
+            
+            builder.RegisterType<MovementWithSprint>().As<IMovement>();
             
             return builder.Build();
         }

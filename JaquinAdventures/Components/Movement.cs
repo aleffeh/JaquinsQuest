@@ -1,6 +1,7 @@
-﻿using Otter;
+﻿using JaquinAdventures.Interfaces;
+using Otter;
 
-namespace JaquinAdventures.Interfaces
+namespace JaquinAdventures.Components
 {
     public class Movement : Component, IMovement
     {

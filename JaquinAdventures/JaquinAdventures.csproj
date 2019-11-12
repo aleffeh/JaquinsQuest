@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components\WasdInput.cs" />
-    <Compile Include="Components\MovementIA.cs" />
+    <Compile Include="Components\MovementIa.cs" />
     <Compile Include="Components\MovementWithSprint.cs" />
     <Compile Include="Core\Containers\ContainerConfig.cs" />
     <Compile Include="Core\Containers\FactoryContainer.cs" />

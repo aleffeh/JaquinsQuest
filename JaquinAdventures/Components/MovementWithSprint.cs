@@ -1,21 +1,22 @@
-﻿using Otter;
+﻿using JaquinAdventures.Interfaces;
+using Otter;
 
-namespace JaquinAdventures.Interfaces
+namespace JaquinAdventures.Components
 {
     public class MovementWithSprint : Component, IMovement
     {
-        private float _speedMultiplier = 1;
-        private readonly IInputHandler _inputHandler;
-        private float _speed = 10;
+        private float speedMultiplier = 1;
+        private readonly IInputHandler inputHandler;
+        private readonly float speed = 10;
 
-        public MovementWithSprint(IInputHandler inputHandler) => _inputHandler = inputHandler;
+        public MovementWithSprint(IInputHandler inputHandler) => this.inputHandler = inputHandler;
 
         public override void Update()
         {
-            _speedMultiplier = _inputHandler.Input.KeyDown(Key.Space) ? 2 : 1;
+            speedMultiplier = inputHandler.Input.KeyDown(Key.Space) ? 2 : 1;
             Move();
         }
 
-        public void Move() => Entity.Position += _inputHandler.GetDirection(_speed * _speedMultiplier);
+        public void Move() => Entity.Position += inputHandler.GetDirection(speed * speedMultiplier);
     }
 }

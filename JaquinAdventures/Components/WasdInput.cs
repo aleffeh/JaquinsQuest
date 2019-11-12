@@ -6,10 +6,7 @@ namespace JaquinAdventures.Interfaces
     {
         public Input Input { get; }
 
-        public WasdInput(Input input)
-        {
-            this.Input = input;
-        }
+        public WasdInput(Input input) => this.Input = input;
 
         public Vector2 GetDirection()
         {
@@ -27,9 +24,6 @@ namespace JaquinAdventures.Interfaces
             return direction;
         }
 
-        public Vector2 GetDirection(float speed)
-        {
-            return GetDirection() * speed;
-        }
+        public Vector2 GetDirection(float speed) => GetDirection() * speed;
     }
 }
