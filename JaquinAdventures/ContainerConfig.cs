@@ -19,7 +19,8 @@ namespace JaquinAdventures
             builder.RegisterType<MainScene>();
             builder.RegisterType<Player>();
             builder.RegisterInstance(Game.Instance.Input);
-            builder.RegisterType<IAMoveSystem>().As<IMoveSystem>();
+            builder.RegisterType<MoveSystemWithSprint>().As<IMoveSystem>();
+            
             return builder.Build();
         }
     }
