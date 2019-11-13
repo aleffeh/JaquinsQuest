@@ -6,18 +6,18 @@ namespace JaquinAdventures
 {
     public class GameManager : IApplication 
     {
-        private Game _game;
+        private Game game;
 
         public GameManager(Game game, MainScene mainScene)
         {
             game.FirstScene = mainScene;
-            _game = game;
+            this.game = game;
         }
 
 
         public void Run()
         {
-            _game.Start();
+            game.Start();
         }
     }
 }

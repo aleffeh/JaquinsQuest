@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Components\ClampComponent.cs" />
     <Compile Include="Components\WasdInput.cs" />
     <Compile Include="Components\MovementIa.cs" />
     <Compile Include="Components\MovementWithSprint.cs" />

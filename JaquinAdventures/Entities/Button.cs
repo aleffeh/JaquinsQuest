@@ -6,22 +6,17 @@ namespace JaquinAdventures.Entities
 {
     public class Button : ButtonBase 
     {
-        private Player _player;
+        private readonly Player player;
         
         public Button(Game game, Input input, Player player) : base(game, input)
         {
-            _player = player;
+            this.player = player;
             Sprite = Image.CreateRectangle(300,200);
             Sprite.CenterOrigin();
             X = 400;
             Y = 200;
-            
         }
 
-        protected override void OnCLick()
-        {
-            _player.Sprite.Color = Color.Random;
-        }
-
+        protected override void OnCLick() => player.Sprite.Color = Color.Random;
     }
 }

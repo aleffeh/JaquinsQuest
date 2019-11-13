@@ -7,7 +7,7 @@ using Otter;
 
 namespace JaquinAdventures.Core.Containers
 {
-    public class ContainerConfig
+    public static class ContainerConfig
     {
         public static IContainer Configure()
         {
@@ -25,6 +25,7 @@ namespace JaquinAdventures.Core.Containers
             builder.RegisterType<MainScene>().AsSelf();
             builder.RegisterType<Player>().SingleInstance();
             builder.RegisterType<ButtonBase>();
+            builder.RegisterType<ClampComponent<Player>>();
             builder.RegisterType<Entities.Button>();
             
             builder.RegisterType<WasdInput>().As<IInputHandler>();
