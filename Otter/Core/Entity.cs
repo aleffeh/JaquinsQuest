@@ -261,7 +261,7 @@ namespace Otter {
         /// <summary>
         /// A reference to the Input object in the Game that controls the Scene.
         /// </summary>
-        public Input Input {
+        public Input _input {
             get { return Scene.Game.Input; }
         }
 

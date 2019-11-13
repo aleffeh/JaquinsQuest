@@ -48,6 +48,8 @@
     <Compile Include="Core\Containers\ContainerConfig.cs" />
     <Compile Include="Core\Containers\FactoryContainer.cs" />
     <Compile Include="Core\GameManager.cs" />
+    <Compile Include="Entities\Button.cs" />
+    <Compile Include="Entities\ButtonBase.cs" />
     <Compile Include="Entities\Player.cs" />
     <Compile Include="Interfaces\IApplication.cs" />
     <Compile Include="Interfaces\IInputHandler.cs" />

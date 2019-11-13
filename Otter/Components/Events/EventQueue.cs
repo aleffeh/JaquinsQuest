@@ -1,11 +1,4 @@
-﻿using Otter;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Otter {
+﻿namespace Otter {
     /// <summary>
     /// A Component to manage and process queue of events.
     /// </summary>

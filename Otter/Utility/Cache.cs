@@ -1,8 +1,6 @@
 ﻿using SFML.Audio;
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.IO.Compression;
 
 namespace Otter {
 

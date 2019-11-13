@@ -1,9 +1,6 @@
-﻿using System;
-using Autofac;
-using Autofac.Core;
+﻿using Autofac;
 using JaquinAdventures.Core.Containers;
 using JaquinAdventures.Interfaces;
-using Otter;
 
 namespace JaquinAdventures
 {

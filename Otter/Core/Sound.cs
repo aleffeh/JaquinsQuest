@@ -1,5 +1,4 @@
 ﻿using SFML.Audio;
-using System;
 using System.IO;
 
 namespace Otter {

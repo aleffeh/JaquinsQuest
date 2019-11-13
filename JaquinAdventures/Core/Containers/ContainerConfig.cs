@@ -4,7 +4,6 @@ using JaquinAdventures.Entities;
 using JaquinAdventures.Interfaces;
 using JaquinAdventures.Scenes;
 using Otter;
-using Movement = JaquinAdventures.Components.Movement;
 
 namespace JaquinAdventures.Core.Containers
 {
@@ -17,11 +16,17 @@ namespace JaquinAdventures.Core.Containers
             builder.RegisterType<GameManager>().As<IApplication>();
             
             builder.RegisterInstance(new Game("Jaquin Adventures", 1280, 720,120)
-                {Color = Color.Cyan}).SingleInstance();
+                {
+                Color = Color.Magenta,
+                MouseVisible = true
+                }).SingleInstance();
             builder.RegisterInstance(Game.Instance.Input);
             
-            builder.RegisterType<MainScene>();
-            builder.RegisterType<Player>();
+            builder.RegisterType<MainScene>().AsSelf();
+            builder.RegisterType<Player>().SingleInstance();
+            builder.RegisterType<ButtonBase>();
+            builder.RegisterType<Entities.Button>();
+            
             builder.RegisterType<WasdInput>().As<IInputHandler>();
             
             builder.RegisterType<MovementWithSprint>().As<IMovement>();

@@ -12,7 +12,12 @@ namespace JaquinAdventures.Entities
             AddComponent((Component)movement);
             
             Sprite = Image.CreateCircle(64, Color.White);
-            AddGraphic(Sprite);
+        }
+
+        public override void Render()
+        {
+            Sprite.Render(X,Y);
+            base.Render();
         }
     }
 }

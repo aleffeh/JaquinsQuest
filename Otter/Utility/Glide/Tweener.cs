@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-using Otter;
 
 namespace Otter {
     public class Tweener : Tween.TweenerImpl { };
