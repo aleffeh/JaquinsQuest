@@ -3,28 +3,46 @@ using Otter;
 
 namespace JaquinAdventures.Entities
 {
-    public abstract class ButtonBase : Entity
+    public abstract class ButtonBase : Entity, IDisposable
     {
-        private Input input;
-        private Game game;
+        private new readonly Input _input;
+        private Game _game;
+        
         protected Image Sprite;
         protected event Action OnClickEvent = delegate { };
-        protected Color ButtonColor = Color.Random, HoveredColor = Color.Random, ClickedColor = Color.Random;
-        private bool isPressed;
-        private bool isPressedLastFrame;
-        private bool isHovering;
+        protected event Action OnHoverStartEvent = delegate { };
+        protected event Action OnHoverEndEvent = delegate { };
+        
+        protected readonly Color ButtonColor = Color.Random;
+        protected readonly Color HoveredColor = Color.Random;
+        protected readonly Color ClickedColor = Color.Random;
+        
+        private MouseButton _button;
+        private bool _isPressed;
+        private bool _isPressedLastFrame;
+        private bool _isHovered;
 
-        public ButtonBase(Game game, Input input)
+        protected ButtonBase(Game game, Input input,MouseButton button)
         {
-            this.game = game;
-            this.input = input;
-            // Sprite = Image.CreateRectangle(300, 100);
-            //Sprite.CenterOrigin();
+            _game = game;
+            _input = input;
+            _button = button;
             Layer = -10;
+
             OnClickEvent += OnCLick;
+            OnHoverStartEvent += OnHoverEnter;
+            OnHoverEndEvent += OnHoverExit;
         }
 
         protected virtual void OnCLick()
+        {
+        }
+
+        protected virtual void OnHoverEnter()
+        {
+        }
+
+        protected virtual void OnHoverExit()
         {
         }
 
@@ -32,35 +50,45 @@ namespace JaquinAdventures.Entities
         {
             UpdateState();
 
-            if (isPressed)
+            if (_isPressed)
             {
                 Sprite.Color = ClickedColor;
-                if (!isPressedLastFrame)
+                if (!_isPressedLastFrame)
                     OnClickEvent?.Invoke();
             }
-            else if (isHovering)
+            else if (_isHovered)
                 Sprite.Color = HoveredColor;
             else
                 Sprite.Color = ButtonColor;
         }
 
+        public override void UpdateFirst() => _isPressedLastFrame = _isPressed;
+
         private void UpdateState()
         {
-            isPressedLastFrame = isPressed;
-
-            if (input.MouseScreenX > X - Sprite.HalfWidth && input.MouseScreenX < X + Sprite.HalfWidth &&
-                input.MouseScreenY > Y - Sprite.HalfHeight && input.MouseScreenY < Y + Sprite.HalfHeight)
+            if (_input.MouseScreenX > X - Sprite.HalfWidth && _input.MouseScreenX < X + Sprite.HalfWidth &&
+                _input.MouseScreenY > Y - Sprite.HalfHeight && _input.MouseScreenY < Y + Sprite.HalfHeight)
             {
-                isHovering = true;
-                isPressed = input.MouseButtonDown(MouseButton.Left);
+                if (!_isHovered)
+                    OnHoverStartEvent?.Invoke();
+                _isHovered = true;
+                _isPressed = _input.MouseButtonDown(_button);
             }
             else
-                isHovering = false;
+            {
+                if(_isHovered)
+                    OnHoverEndEvent?.Invoke();
+                _isHovered = false;
+            }
         }
 
-        public override void Render()
+        public override void Render() => Sprite.Render(X, Y);
+
+        public void Dispose()
         {
-            Sprite.Render(X, Y);
+            OnClickEvent -= OnCLick;
+            OnHoverStartEvent -= OnHoverEnter;
+            OnHoverEndEvent -= OnHoverExit;
         }
     }
 }

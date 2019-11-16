@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\TonyStark\.Rider2019.2\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\TonyStark\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_JaquinAdventures.1183999825.00" t="ExcludeRecursive" />
-    <e p="C:\Users\TonyStark\Documents\GitHub\JaquinsQuest" t="IncludeFlat">
+    <e p="C:\Users\felip\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\felip\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_JaquinAdventures.2006691280.00" t="ExcludeRecursive" />
+    <e p="C:\Users\felip\Documents\GitHub\JaquinsQuest" t="IncludeFlat">
       <e p="JaquinAdventures" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Components" t="Include">
@@ -16,7 +16,6 @@
         <e p="Core" t="Include">
           <e p="Containers" t="Include">
             <e p="ContainerConfig.cs" t="Include" />
-            <e p="FactoryContainer.cs" t="Include" />
           </e>
           <e p="GameManager.cs" t="Include" />
         </e>
@@ -25,7 +24,9 @@
           <e p="ButtonBase.cs" t="Include" />
           <e p="Player.cs" t="Include" />
         </e>
-        <e p="Factories" t="Include" />
+        <e p="Factories" t="Include">
+          <e p="Bullet.cs" t="Include" />
+        </e>
         <e p="Interfaces" t="Include">
           <e p="IApplication.cs" t="Include" />
           <e p="IInputHandler.cs" t="Include" />

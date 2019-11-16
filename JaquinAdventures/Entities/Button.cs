@@ -8,7 +8,7 @@ namespace JaquinAdventures.Entities
     {
         private readonly Player player;
         
-        public Button(Game game, Input input, Player player) : base(game, input)
+        public Button(Game game, Input input, Player player) : base(game, input,MouseButton.Left)
         {
             this.player = player;
             Sprite = Image.CreateRectangle(300,200);
@@ -17,6 +17,10 @@ namespace JaquinAdventures.Entities
             Y = 200;
         }
 
-        protected override void OnCLick() => player.Sprite.Color = Color.Random;
+        protected override void OnCLick()
+        {
+            player.Sprite.Color = Color.Random;
+            player.Shoot();
+        }
     }
 }

@@ -62,6 +62,11 @@ namespace Otter {
         public Action OnUpdate = delegate { };
 
         /// <summary>
+        /// An action that fires when the entity is updated first time.
+        /// </summary>
+        public Action OnStart = delegate { };
+        
+        /// <summary>
         /// An action that fires in the entity's UpdateFirst().
         /// </summary>
         public Action OnUpdateFirst = delegate { };
@@ -984,6 +989,12 @@ namespace Otter {
         /// </summary>
         public virtual void Update() {
         }
+        
+        /// <summary>
+        /// The first Update of the game
+        /// </summary>
+        public virtual void Start() {
+        }
 
         /// <summary>
         /// Called when the entity is rendering to the screen.
@@ -1042,9 +1053,17 @@ namespace Otter {
             }
         }
 
+        internal void StartInternal()
+        {
+            Start();
+            if (OnStart != null)
+                OnStart();
+        }
+
         internal void UpdateFirstInternal() {
             Game.UpdateCount++;
-
+            if(!UpdatedOnce)
+                StartInternal();
             UpdatedOnce = true;
 
             UpdateComponentLists();

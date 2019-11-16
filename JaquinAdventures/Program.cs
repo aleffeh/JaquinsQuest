@@ -8,13 +8,14 @@ namespace JaquinAdventures
     {
         public static void Main(string[] args)
         {
-            var container = ContainerConfig.Configure();
-
-            using (var scope = container.BeginLifetimeScope())
+            Container = ContainerConfig.Configure();
+            using (var scope = Container.BeginLifetimeScope())
             {
                 var app = scope.Resolve<IApplication>();
                 app.Run();
             }
         }
+
+        public static IContainer Container { get; private set; }
     }
 }
