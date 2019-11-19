@@ -157,20 +157,18 @@ namespace Otter {
         /// Called when MoveX collides with a collider.
         /// </summary>
         /// <param name="collider">The collider that was hit.</param>
-        public virtual void MoveCollideX(Collider collider) {
-            if (OnCollideX != null) {
-                OnCollideX();
-            }
+        public virtual void MoveCollideX(Collider collider)
+        {
+            OnCollideX?.Invoke();
         }
 
         /// <summary>
         /// Called when MoveY collides with a collider.
         /// </summary>
         /// <param name="collider">The collider that was hit.</param>
-        public virtual void MoveCollideY(Collider collider) {
-            if (OnCollideY != null) {
-                OnCollideY();
-            }
+        public virtual void MoveCollideY(Collider collider)
+        {
+            OnCollideY?.Invoke();
         }
 
         /// <summary>

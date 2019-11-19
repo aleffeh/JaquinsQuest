@@ -85,7 +85,7 @@ namespace Otter {
         /// <param name="x">The X position to render the Text from.</param>
         /// <param name="y">The Y position to render the Text from.</param>
         public static void Text(string str, int size, float x = 0, float y = 0) {
-            Draw.Graphic(new Text(str, size), x, y);
+            Graphic(new Text(str, size), x, y);
         }
 
         /// <summary>

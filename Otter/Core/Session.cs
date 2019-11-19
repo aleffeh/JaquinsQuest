@@ -21,7 +21,7 @@ namespace Otter {
         }
 
         static public Session Create(Enum name) {
-            return Session.Create(Util.EnumValueToString(name));
+            return Create(Util.EnumValueToString(name));
         }
 
         /// <summary>
@@ -75,10 +75,9 @@ namespace Otter {
             nextSessionId++;
         }
 
-        internal void Update() {
-            if (Controller != null) {
-                Controller.UpdateFirst();
-            }
+        internal void Update()
+        {
+            Controller?.UpdateFirst();
         }
 
     }

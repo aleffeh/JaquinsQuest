@@ -72,7 +72,7 @@ namespace Otter {
         /// <summary>
         /// An action that triggers during Begin().
         /// </summary>
-        public Action OnBegin = delegate { };
+        public Action OnStart = delegate { };
 
         /// <summary>
         /// An action that triggers during End().
@@ -748,7 +748,7 @@ namespace Otter {
         /// <summary>
         /// Called when the scene begins after being switched to, or added to the stack.
         /// </summary>
-        public virtual void Begin() {
+        public virtual void Start() {
 
         }
 
@@ -1279,14 +1279,14 @@ namespace Otter {
                 e.SceneBegin();
             }
             Game.OnSceneBegin();
-            OnBegin();
+            OnStart();
 
             if (Width == 0 || Height == 0) {
                 Width = Game.Width;
                 Height = Game.Height;
             }
 
-            Begin();
+            Start();
         }
 
 
@@ -1331,6 +1331,7 @@ namespace Otter {
         internal void UpdateFirstInternal() {
             OnUpdateFirst();
 
+           
             UpdateFirst();
 
             foreach (var order in orders) {

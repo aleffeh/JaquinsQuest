@@ -119,10 +119,9 @@ namespace Otter {
         /// <summary>
         /// Removes the Component from its parent Entity.
         /// </summary>
-        public void RemoveSelf() {
-            if (Entity != null) {
-                Entity.RemoveComponent(this);
-            }
+        public void RemoveSelf()
+        {
+            Entity?.RemoveComponent(this);
         }
 
         /// <summary>

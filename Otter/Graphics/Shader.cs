@@ -386,7 +386,7 @@ namespace Otter {
         internal SFML.Graphics.Shader SFMLShader;
 
         internal Shader(SFML.Graphics.Shader shader) {
-            this.SFMLShader = shader;
+            SFMLShader = shader;
         }
 
         /// <summary>

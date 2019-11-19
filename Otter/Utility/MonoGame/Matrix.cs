@@ -36,22 +36,22 @@ namespace Otter {
 
         public Matrix(float m11, float m12, float m13, float m14, float m21, float m22, float m23, float m24, float m31,
                       float m32, float m33, float m34, float m41, float m42, float m43, float m44) {
-            this.M11 = m11;
-            this.M12 = m12;
-            this.M13 = m13;
-            this.M14 = m14;
-            this.M21 = m21;
-            this.M22 = m22;
-            this.M23 = m23;
-            this.M24 = m24;
-            this.M31 = m31;
-            this.M32 = m32;
-            this.M33 = m33;
-            this.M34 = m34;
-            this.M41 = m41;
-            this.M42 = m42;
-            this.M43 = m43;
-            this.M44 = m44;
+            M11 = m11;
+            M12 = m12;
+            M13 = m13;
+            M14 = m14;
+            M21 = m21;
+            M22 = m22;
+            M23 = m23;
+            M24 = m24;
+            M31 = m31;
+            M32 = m32;
+            M33 = m33;
+            M34 = m34;
+            M41 = m41;
+            M42 = m42;
+            M43 = m43;
+            M44 = m44;
         }
 
         #endregion Public Constructors
@@ -163,36 +163,36 @@ namespace Otter {
 
         public Vector3 Backward {
             get {
-                return new Vector3(this.M31, this.M32, this.M33);
+                return new Vector3(M31, M32, M33);
             }
             set {
-                this.M31 = value.X;
-                this.M32 = value.Y;
-                this.M33 = value.Z;
+                M31 = value.X;
+                M32 = value.Y;
+                M33 = value.Z;
             }
         }
 
 
         public Vector3 Down {
             get {
-                return new Vector3(-this.M21, -this.M22, -this.M23);
+                return new Vector3(-M21, -M22, -M23);
             }
             set {
-                this.M21 = -value.X;
-                this.M22 = -value.Y;
-                this.M23 = -value.Z;
+                M21 = -value.X;
+                M22 = -value.Y;
+                M23 = -value.Z;
             }
         }
 
 
         public Vector3 Forward {
             get {
-                return new Vector3(-this.M31, -this.M32, -this.M33);
+                return new Vector3(-M31, -M32, -M33);
             }
             set {
-                this.M31 = -value.X;
-                this.M32 = -value.Y;
-                this.M33 = -value.Z;
+                M31 = -value.X;
+                M32 = -value.Y;
+                M33 = -value.Z;
             }
         }
 
@@ -217,48 +217,48 @@ namespace Otter {
 
         public Vector3 Left {
             get {
-                return new Vector3(-this.M11, -this.M12, -this.M13);
+                return new Vector3(-M11, -M12, -M13);
             }
             set {
-                this.M11 = -value.X;
-                this.M12 = -value.Y;
-                this.M13 = -value.Z;
+                M11 = -value.X;
+                M12 = -value.Y;
+                M13 = -value.Z;
             }
         }
 
 
         public Vector3 Right {
             get {
-                return new Vector3(this.M11, this.M12, this.M13);
+                return new Vector3(M11, M12, M13);
             }
             set {
-                this.M11 = value.X;
-                this.M12 = value.Y;
-                this.M13 = value.Z;
+                M11 = value.X;
+                M12 = value.Y;
+                M13 = value.Z;
             }
         }
 
 
         public Vector3 Translation {
             get {
-                return new Vector3(this.M41, this.M42, this.M43);
+                return new Vector3(M41, M42, M43);
             }
             set {
-                this.M41 = value.X;
-                this.M42 = value.Y;
-                this.M43 = value.Z;
+                M41 = value.X;
+                M42 = value.Y;
+                M43 = value.Z;
             }
         }
 
 
         public Vector3 Up {
             get {
-                return new Vector3(this.M21, this.M22, this.M23);
+                return new Vector3(M21, M22, M23);
             }
             set {
-                this.M21 = value.X;
-                this.M22 = value.Y;
-                this.M23 = value.Z;
+                M21 = value.X;
+                M22 = value.Y;
+                M23 = value.Z;
             }
         }
         #endregion Public Properties
@@ -688,7 +688,7 @@ namespace Otter {
 
 
         public static void CreateRotationX(float radians, out Matrix result) {
-            result = Matrix.Identity;
+            result = Identity;
 
             var val1 = (float)Math.Cos(radians);
             var val2 = (float)Math.Sin(radians);
@@ -707,7 +707,7 @@ namespace Otter {
 
 
         public static void CreateRotationY(float radians, out Matrix result) {
-            result = Matrix.Identity;
+            result = Identity;
 
             var val1 = (float)Math.Cos(radians);
             var val2 = (float)Math.Sin(radians);
@@ -727,7 +727,7 @@ namespace Otter {
 
 
         public static void CreateRotationZ(float radians, out Matrix result) {
-            result = Matrix.Identity;
+            result = Identity;
 
             var val1 = (float)Math.Cos(radians);
             var val2 = (float)Math.Sin(radians);
@@ -965,26 +965,26 @@ namespace Otter {
         }
 
         public bool Decompose(out Vector3 scale, out Quaternion rotation, out Vector3 translation) {
-            translation.X = this.M41;
-            translation.Y = this.M42;
-            translation.Z = this.M43;
+            translation.X = M41;
+            translation.Y = M42;
+            translation.Z = M43;
 
             float xs = (Math.Sign(M11 * M12 * M13 * M14) < 0) ? -1 : 1;
             float ys = (Math.Sign(M21 * M22 * M23 * M24) < 0) ? -1 : 1;
             float zs = (Math.Sign(M31 * M32 * M33 * M34) < 0) ? -1 : 1;
 
-            scale.X = xs * (float)Math.Sqrt(this.M11 * this.M11 + this.M12 * this.M12 + this.M13 * this.M13);
-            scale.Y = ys * (float)Math.Sqrt(this.M21 * this.M21 + this.M22 * this.M22 + this.M23 * this.M23);
-            scale.Z = zs * (float)Math.Sqrt(this.M31 * this.M31 + this.M32 * this.M32 + this.M33 * this.M33);
+            scale.X = xs * (float)Math.Sqrt(M11 * M11 + M12 * M12 + M13 * M13);
+            scale.Y = ys * (float)Math.Sqrt(M21 * M21 + M22 * M22 + M23 * M23);
+            scale.Z = zs * (float)Math.Sqrt(M31 * M31 + M32 * M32 + M33 * M33);
 
             if (scale.X == 0.0 || scale.Y == 0.0 || scale.Z == 0.0) {
                 rotation = Quaternion.Identity;
                 return false;
             }
 
-            Matrix m1 = new Matrix(this.M11 / scale.X, M12 / scale.X, M13 / scale.X, 0,
-                                   this.M21 / scale.Y, M22 / scale.Y, M23 / scale.Y, 0,
-                                   this.M31 / scale.Z, M32 / scale.Z, M33 / scale.Z, 0,
+            Matrix m1 = new Matrix(M11 / scale.X, M12 / scale.X, M13 / scale.X, 0,
+                                   M21 / scale.Y, M22 / scale.Y, M23 / scale.Y, 0,
+                                   M31 / scale.Z, M32 / scale.Z, M33 / scale.Z, 0,
                                    0, 0, 0, 1);
 
             rotation = Quaternion.CreateFromRotationMatrix(m1);
@@ -992,22 +992,22 @@ namespace Otter {
         }
 
         public float Determinant() {
-            float num22 = this.M11;
-            float num21 = this.M12;
-            float num20 = this.M13;
-            float num19 = this.M14;
-            float num12 = this.M21;
-            float num11 = this.M22;
-            float num10 = this.M23;
-            float num9 = this.M24;
-            float num8 = this.M31;
-            float num7 = this.M32;
-            float num6 = this.M33;
-            float num5 = this.M34;
-            float num4 = this.M41;
-            float num3 = this.M42;
-            float num2 = this.M43;
-            float num = this.M44;
+            float num22 = M11;
+            float num21 = M12;
+            float num20 = M13;
+            float num19 = M14;
+            float num12 = M21;
+            float num11 = M22;
+            float num10 = M23;
+            float num9 = M24;
+            float num8 = M31;
+            float num7 = M32;
+            float num6 = M33;
+            float num5 = M34;
+            float num4 = M41;
+            float num3 = M42;
+            float num2 = M43;
+            float num = M44;
             float num18 = (num6 * num) - (num5 * num2);
             float num17 = (num7 * num) - (num5 * num3);
             float num16 = (num7 * num2) - (num6 * num3);
@@ -1103,21 +1103,21 @@ namespace Otter {
 
 
         public bool Equals(Matrix other) {
-            return ((((((this.M11 == other.M11) && (this.M22 == other.M22)) && ((this.M33 == other.M33) && (this.M44 == other.M44))) && (((this.M12 == other.M12) && (this.M13 == other.M13)) && ((this.M14 == other.M14) && (this.M21 == other.M21)))) && ((((this.M23 == other.M23) && (this.M24 == other.M24)) && ((this.M31 == other.M31) && (this.M32 == other.M32))) && (((this.M34 == other.M34) && (this.M41 == other.M41)) && (this.M42 == other.M42)))) && (this.M43 == other.M43));
+            return ((((((M11 == other.M11) && (M22 == other.M22)) && ((M33 == other.M33) && (M44 == other.M44))) && (((M12 == other.M12) && (M13 == other.M13)) && ((M14 == other.M14) && (M21 == other.M21)))) && ((((M23 == other.M23) && (M24 == other.M24)) && ((M31 == other.M31) && (M32 == other.M32))) && (((M34 == other.M34) && (M41 == other.M41)) && (M42 == other.M42)))) && (M43 == other.M43));
         }
 
 
         public override bool Equals(object obj) {
             bool flag = false;
             if (obj is Matrix) {
-                flag = this.Equals((Matrix)obj);
+                flag = Equals((Matrix)obj);
             }
             return flag;
         }
 
 
         public override int GetHashCode() {
-            return (((((((((((((((this.M11.GetHashCode() + this.M12.GetHashCode()) + this.M13.GetHashCode()) + this.M14.GetHashCode()) + this.M21.GetHashCode()) + this.M22.GetHashCode()) + this.M23.GetHashCode()) + this.M24.GetHashCode()) + this.M31.GetHashCode()) + this.M32.GetHashCode()) + this.M33.GetHashCode()) + this.M34.GetHashCode()) + this.M41.GetHashCode()) + this.M42.GetHashCode()) + this.M43.GetHashCode()) + this.M44.GetHashCode());
+            return (((((((((((((((M11.GetHashCode() + M12.GetHashCode()) + M13.GetHashCode()) + M14.GetHashCode()) + M21.GetHashCode()) + M22.GetHashCode()) + M23.GetHashCode()) + M24.GetHashCode()) + M31.GetHashCode()) + M32.GetHashCode()) + M33.GetHashCode()) + M34.GetHashCode()) + M41.GetHashCode()) + M42.GetHashCode()) + M43.GetHashCode()) + M44.GetHashCode());
         }
 
 
@@ -1423,7 +1423,7 @@ namespace Otter {
 
 
         public static Matrix operator +(Matrix matrix1, Matrix matrix2) {
-            Matrix.Add(ref matrix1, ref matrix2, out matrix1);
+            Add(ref matrix1, ref matrix2, out matrix1);
             return matrix1;
         }
 

@@ -266,8 +266,7 @@ namespace Otter {
         /// <param name="tags">The tags to check.</param>
         /// <returns>The collider that was hit first.</returns>
         public Collider Collide(float x, float y, params int[] tags) {
-            if (Entity == null) return null;
-            if (Entity.Scene == null) return null;
+            if (Entity?.Scene == null) return null;
 
             float tempX = Entity.X, tempY = Entity.Y;
             Entity.X = x;
@@ -326,8 +325,7 @@ namespace Otter {
         /// <param name="c">The collider to check for.</param>
         /// <returns>The collider that was hit first.</returns>
         public Collider Collide(float x, float y, Collider c) {
-            if (Entity == null) return null;
-            if (Entity.Scene == null) return null;
+            if (Entity?.Scene == null) return null;
             if (!c.Entity.Collidable) return null;
             if (!c.Collidable) return null;
 
@@ -354,8 +352,7 @@ namespace Otter {
         /// <param name="e">The entity to check for.</param>
         /// <returns>The collider that was hit.</returns>
         public Collider Collide(float x, float y, Entity e) {
-            if (Entity == null) return null;
-            if (Entity.Scene == null) return null;
+            if (Entity?.Scene == null) return null;
             if (Entity == e) return null; // Can't collide with self
             if (!Entity.Collidable) return null;
 
@@ -415,8 +412,7 @@ namespace Otter {
         /// <returns>The Entity that was hit.</returns>
         public Entity CollideEntity(float x, float y, params int[] tags) {
             var c = Collide(x, y, tags);
-            if (c == null) return null;
-            return c.Entity;
+            return c?.Entity;
         }
 
         /// <summary>
@@ -563,8 +559,7 @@ namespace Otter {
         /// <returns>A list of colliders.</returns>
         public List<Collider> CollideList(float x, float y, params int[] tags) {
             List<Collider> collided = new List<Collider>();
-            if (Entity == null) return null;
-            if (Entity.Scene == null) return null;
+            if (Entity?.Scene == null) return null;
 
             float tempX = Entity.X, tempY = Entity.Y;
             Entity.X = x;
@@ -735,10 +730,8 @@ namespace Otter {
 
             foreach (var e in entities) {
                 var c = Collide(x, y, e);
-                if (c != null) {
-                    if (c.Entity != null) {
-                        list.Add(e);
-                    }
+                if (c?.Entity != null) {
+                    list.Add(e);
                 }
             }
 
@@ -796,19 +789,11 @@ namespace Otter {
         public Collider AddTag(int tag) {
             if (Tags.Contains(tag)) return this;
 
-            if (Entity != null) {
-                if (Entity.Scene != null) {
-                    Entity.Scene.RemoveColliderInternal(this);
-                }
-            }
+            Entity?.Scene?.RemoveColliderInternal(this);
 
             Tags.Add(tag);
 
-            if (Entity != null) {
-                if (Entity.Scene != null) {
-                    Entity.Scene.AddColliderInternal(this);
-                }
-            }
+            Entity?.Scene?.AddColliderInternal(this);
 
             return this;
         }
@@ -854,19 +839,11 @@ namespace Otter {
         /// <param name="tag">The tags to remove.</param>
         /// <returns>The Collider.</returns>
         public Collider RemoveTag(int tag) {
-            if (Entity != null) {
-                if (Entity.Scene != null) {
-                    Entity.Scene.RemoveColliderInternal(this);
-                }
-            }
+            Entity?.Scene?.RemoveColliderInternal(this);
 
             Tags.Remove(tag);
 
-            if (Entity != null) {
-                if (Entity.Scene != null) {
-                    Entity.Scene.AddColliderInternal(this);
-                }
-            }
+            Entity?.Scene?.AddColliderInternal(this);
 
             return this;
         }

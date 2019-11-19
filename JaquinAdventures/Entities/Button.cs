@@ -1,9 +1,9 @@
 ﻿using System;
-using JaquinAdventures.Interfaces;
+using JaquinAdventures.Abstractions;
 using Otter;
 
-namespace JaquinAdventures.Entities
-{
+
+namespace JaquinAdventures.Entities{
     public class Button : ButtonBase 
     {
         private readonly Player player;

@@ -52,7 +52,7 @@ namespace Otter {
         static public Image CreateRectangle(Color color) {
             int w = Game.Instance.Width;
             int h = Game.Instance.Height;
-            return Image.CreateRectangle(w, h, color);
+            return CreateRectangle(w, h, color);
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace Otter {
         /// </summary>
         /// <returns>A new image containing the rectangle.</returns>
         static public Image CreateRectangle() {
-            return Image.CreateRectangle(Color.Black);
+            return CreateRectangle(Color.Black);
         }
 
         /// <summary>
@@ -295,7 +295,7 @@ namespace Otter {
             base.UpdateDrawable();
 
             if (isCircle) {
-                var circle = new SFML.Graphics.CircleShape(radius);
+                var circle = new CircleShape(radius);
                 circle.OutlineThickness = OutlineThickness;
                 circle.OutlineColor = OutlineColor.SFMLColor;
                 circle.FillColor = Color.SFMLColor;
@@ -306,7 +306,7 @@ namespace Otter {
             }
             else {
                 if (isShape) {
-                    var rect = new SFML.Graphics.RectangleShape(new Vector2f(rectWidth, rectHeight));
+                    var rect = new RectangleShape(new Vector2f(rectWidth, rectHeight));
                     rect.OutlineColor = OutlineColor.SFMLColor;
                     rect.OutlineThickness = OutlineThickness;
                     rect.FillColor = Color.SFMLColor;

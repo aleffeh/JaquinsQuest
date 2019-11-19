@@ -102,7 +102,7 @@ namespace Otter {
         protected override void UpdateDrawable() {
             base.UpdateDrawable();
 
-            SFMLVertices = new VertexArray((SFML.Graphics.PrimitiveType)PrimitiveType);
+            SFMLVertices = new VertexArray((PrimitiveType)PrimitiveType);
 
             
             foreach (var v in Verts) {
@@ -243,7 +243,7 @@ namespace Otter {
 
         #region Internal
 
-        internal SFML.Graphics.VertexArray SFMLVertexArray {
+        internal VertexArray SFMLVertexArray {
             get {
                 Update(); //update if needed
                 return SFMLVertices;

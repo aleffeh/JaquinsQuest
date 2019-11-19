@@ -252,7 +252,7 @@ namespace Otter {
                     pos = gameMouseX;
                 }
                 else {
-                    pos = SFML.Window.Mouse.GetPosition(Game.Window).X;
+                    pos = Mouse.GetPosition(Game.Window).X;
                     pos -= Game.Surface.X - Game.Surface.ScaledWidth * 0.5f;
                     pos /= Game.Surface.ScaleX;
                 }
@@ -272,7 +272,7 @@ namespace Otter {
                     pos = gameMouseY;
                 }
                 else {
-                    pos = SFML.Window.Mouse.GetPosition(Game.Window).Y;
+                    pos = Mouse.GetPosition(Game.Window).Y;
                     pos -= Game.Surface.Y - Game.Surface.ScaledHeight * 0.5f;
                     pos /= Game.Surface.ScaleY;
                 }
@@ -290,14 +290,14 @@ namespace Otter {
                     return gameMouseX;
                 }
 
-                return SFML.Window.Mouse.GetPosition(Game.Window).X;
+                return Mouse.GetPosition(Game.Window).X;
             }
             set {
                 if (Game.LockMouseCenter) {
                     gameMouseX = value;
                 }
                 else {
-                    SFML.Window.Mouse.SetPosition(new Vector2i(value, MouseRawY), Game.Window);
+                    Mouse.SetPosition(new Vector2i(value, MouseRawY), Game.Window);
                 }
             }
         }
@@ -311,14 +311,14 @@ namespace Otter {
                     return gameMouseY;
                 }
 
-                return SFML.Window.Mouse.GetPosition(Game.Window).Y;
+                return Mouse.GetPosition(Game.Window).Y;
             }
             set {
                 if (Game.LockMouseCenter) {
                     gameMouseY = value;
                 }
                 else {
-                    SFML.Window.Mouse.SetPosition(new Vector2i(MouseRawX, value), Game.Window);
+                    Mouse.SetPosition(new Vector2i(MouseRawX, value), Game.Window);
                 }
             }
         }

@@ -93,7 +93,7 @@ namespace Otter {
         /// <param name="u">The X position on the Texture.</param>
         /// <param name="v">The Y position on the Texture.</param>
         public Vert(float x, float y, Color color, float u, float v) {
-            vertex = new SFML.Graphics.Vertex(new Vector2f(x, y), color.SFMLColor, new Vector2f(u, v));
+            vertex = new Vertex(new Vector2f(x, y), color.SFMLColor, new Vector2f(u, v));
         }
 
         /// <summary>

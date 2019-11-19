@@ -197,8 +197,8 @@ namespace Otter {
         /// <param name="angleMax">The maximum angle.</param>
         /// <returns>A random Vector2 position inside the radius and angle.</returns>
         public static Vector2 CircleXY(float radiusMin, float radiusMax, float angleMin, float angleMax) {
-            var angle = Rand.Float(angleMin, angleMax);
-            var radius = Rand.Float(radiusMin, radiusMax);
+            var angle = Float(angleMin, angleMax);
+            var radius = Float(radiusMin, radiusMax);
             return new Vector2(Util.PolarX(angle, radius), Util.PolarY(angle, radius));
         }
 

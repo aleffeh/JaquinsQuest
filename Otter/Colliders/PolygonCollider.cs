@@ -49,7 +49,7 @@ namespace Otter {
                 vectorPoints.Add(new Vector2(x, 0));
             }
 
-            this.polygon = new Polygon(points);
+            polygon = new Polygon(points);
         }
 
         public List<Vector2> Points {

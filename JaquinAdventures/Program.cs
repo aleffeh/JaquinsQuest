@@ -1,21 +1,19 @@
 ﻿using Autofac;
 using JaquinAdventures.Core.Containers;
-using JaquinAdventures.Interfaces;
+using JaquinAdventures.Abstractions;
 
 namespace JaquinAdventures
 {
-    internal class Program
+    internal static class Program
     {
         public static void Main(string[] args)
         {
-            Container = ContainerConfig.Configure();
-            using (var scope = Container.BeginLifetimeScope())
+            var container = ContainerConfig.Configure();
+            using (var scope = container.BeginLifetimeScope())
             {
                 var app = scope.Resolve<IApplication>();
                 app.Run();
             }
         }
-
-        public static IContainer Container { get; private set; }
     }
 }

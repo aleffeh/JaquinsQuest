@@ -78,13 +78,13 @@ namespace Otter {
         #region Constructors
 
         public Vector2(float x, float y) {
-            this.X = x;
-            this.Y = y;
+            X = x;
+            Y = y;
         }
 
         public Vector2(float value) {
-            this.X = value;
-            this.Y = value;
+            X = value;
+            Y = value;
         }
 
         #endregion Constructors
@@ -433,7 +433,7 @@ namespace Otter {
         }
 
         public static Vector2 TransformNormal(Vector2 normal, Matrix matrix) {
-            Vector2.TransformNormal(ref normal, ref matrix, out normal);
+            TransformNormal(ref normal, ref matrix, out normal);
             return normal;
         }
 
@@ -445,7 +445,7 @@ namespace Otter {
         public override string ToString() {
             CultureInfo currentCulture = CultureInfo.CurrentCulture;
             return string.Format(currentCulture, "{{X:{0} Y:{1}}}", new object[] { 
-                this.X.ToString(currentCulture), this.Y.ToString(currentCulture) });
+                X.ToString(currentCulture), Y.ToString(currentCulture) });
         }
 
         #endregion Public Methods

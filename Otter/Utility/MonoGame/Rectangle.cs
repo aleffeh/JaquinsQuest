@@ -55,19 +55,19 @@ namespace Otter {
         }
 
         public int Left {
-            get { return this.X; }
+            get { return X; }
         }
 
         public int Right {
-            get { return (this.X + this.Width); }
+            get { return (X + Width); }
         }
 
         public int Top {
-            get { return this.Y; }
+            get { return Y; }
         }
 
         public int Bottom {
-            get { return (this.Y + this.Height); }
+            get { return (Y + Height); }
         }
 
         #endregion Public Properties
@@ -75,10 +75,10 @@ namespace Otter {
         #region Constructors
 
         public Rectangle(int x, int y, int width, int height) {
-            this.X = x;
-            this.Y = y;
-            this.Width = width;
-            this.Height = height;
+            X = x;
+            Y = y;
+            Width = width;
+            Height = height;
         }
 
         #endregion Constructors
@@ -90,15 +90,15 @@ namespace Otter {
         }
 
         public bool Contains(int x, int y) {
-            return ((((this.X <= x) && (x < (this.X + this.Width))) && (this.Y <= y)) && (y < (this.Y + this.Height)));
+            return ((((X <= x) && (x < (X + Width))) && (Y <= y)) && (y < (Y + Height)));
         }
 
         public bool Contains(Point value) {
-            return ((((this.X <= value.X) && (value.X < (this.X + this.Width))) && (this.Y <= value.Y)) && (value.Y < (this.Y + this.Height)));
+            return ((((X <= value.X) && (value.X < (X + Width))) && (Y <= value.Y)) && (value.Y < (Y + Height)));
         }
 
         public bool Contains(Rectangle value) {
-            return ((((this.X <= value.X) && ((value.X + value.Width) <= (this.X + this.Width))) && (this.Y <= value.Y)) && ((value.Y + value.Height) <= (this.Y + this.Height)));
+            return ((((X <= value.X) && ((value.X + value.Width) <= (X + Width))) && (Y <= value.Y)) && ((value.Y + value.Height) <= (Y + Height)));
         }
 
         public static bool operator !=(Rectangle a, Rectangle b) {
@@ -117,7 +117,7 @@ namespace Otter {
 
         public Point Location {
             get {
-                return new Point(this.X, this.Y);
+                return new Point(X, Y);
             }
             set {
                 X = value.X;
@@ -130,7 +130,7 @@ namespace Otter {
                 // This is incorrect
                 //return new Point( (this.X + this.Width) / 2,(this.Y + this.Height) / 2 );
                 // What we want is the Center of the rectangle from the X and Y Origins
-                return new Point(this.X + (this.Width / 2), this.Y + (this.Height / 2));
+                return new Point(X + (Width / 2), Y + (Height / 2));
             }
         }
 
@@ -149,7 +149,7 @@ namespace Otter {
 
         public bool IsEmpty {
             get {
-                return ((((this.Width == 0) && (this.Height == 0)) && (this.X == 0)) && (this.Y == 0));
+                return ((((Width == 0) && (Height == 0)) && (X == 0)) && (Y == 0));
             }
         }
 
@@ -166,7 +166,7 @@ namespace Otter {
         }
 
         public override int GetHashCode() {
-            return (this.X ^ this.Y ^ this.Width ^ this.Height);
+            return (X ^ Y ^ Width ^ Height);
         }
 
         public bool Intersects(Rectangle value) {

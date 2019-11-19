@@ -318,9 +318,7 @@ namespace Otter {
 
                 if (jumpBuffer > 0) {
                     if (JumpsLeft > 0) {
-                        if (OnJump != null) {
-                            OnJump();
-                        }
+                        OnJump?.Invoke();
                         if (HardDoubleJump) {
                             Speed.Y = -JumpStrength;
                         }

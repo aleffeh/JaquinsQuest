@@ -1,12 +1,13 @@
-﻿using Otter;
+﻿using JaquinAdventures.Entities;
+using Otter;
 
-namespace JaquinAdventures.Interfaces
+namespace JaquinAdventures.Abstractions
 {
     class WasdInput : IInputHandler
     {
         public Input Input { get; }
 
-        public WasdInput(Input input) => this.Input = input;
+        public WasdInput(Input input) => Input = input;
 
         public Vector2 GetDirection()
         {

@@ -1,4 +1,4 @@
-﻿using JaquinAdventures.Interfaces;
+﻿using JaquinAdventures.Abstractions;
 using Otter;
 
 namespace JaquinAdventures.Components

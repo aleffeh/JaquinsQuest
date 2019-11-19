@@ -1,4 +1,4 @@
-﻿namespace JaquinAdventures.Interfaces
+﻿namespace JaquinAdventures.Abstractions
 {
     public interface IApplication
     {

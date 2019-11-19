@@ -156,11 +156,11 @@ namespace Otter {
             if (amount <= 0) return numbers[0];
             if (amount >= 1) return numbers[numbers.Length - 1];
 
-            int fromIndex = (int)Util.ScaleClamp(amount, 0, 1, 0, numbers.Length - 1);
+            int fromIndex = (int)ScaleClamp(amount, 0, 1, 0, numbers.Length - 1);
             int toIndex = fromIndex + 1;
 
             float length = 1f / (numbers.Length - 1);
-            float lerp = Util.ScaleClamp(amount % length, 0, length, 0, 1);
+            float lerp = ScaleClamp(amount % length, 0, length, 0, 1);
 
             // This is a fix for odd numbered color amounts. When fromIndex was
             // odd, lerp would evaluate to 1 when it should be 0.
@@ -228,11 +228,11 @@ namespace Otter {
             if (amount <= 0) return colors[0];
             if (amount >= 1) return colors[colors.Length - 1];
 
-            int fromIndex = (int)Util.ScaleClamp(amount, 0, 1, 0, colors.Length - 1);
+            int fromIndex = (int)ScaleClamp(amount, 0, 1, 0, colors.Length - 1);
             int toIndex = fromIndex + 1;
 
             float length = 1f / (colors.Length - 1);
-            float lerp = Util.ScaleClamp(amount % length, 0, length, 0, 1);
+            float lerp = ScaleClamp(amount % length, 0, length, 0, 1);
 
             // This is a fix for odd numbered color amounts. When fromIndex was
             // odd, lerp would evaluate to 1 when it should be 0.
@@ -265,8 +265,8 @@ namespace Otter {
         /// <returns>The new value between min and max.</returns>
         public static Vector2 Clamp(Vector2 value, Vector2 min, Vector2 max) {
             return new Vector2(
-                Util.Clamp(value.X, min.X, max.X),
-                Util.Clamp(value.Y, min.Y, max.Y)
+                Clamp(value.X, min.X, max.X),
+                Clamp(value.Y, min.Y, max.Y)
                 );
         }
 
@@ -479,7 +479,7 @@ namespace Otter {
         public static float Angle(float x, float y) {
             //y is negative since y is DOWN in video games
             //return degrees by default
-            return (float)Math.Atan2(-y, x) * Util.RAD_TO_DEG;
+            return (float)Math.Atan2(-y, x) * RAD_TO_DEG;
         }
 
         /// <summary>
@@ -958,7 +958,7 @@ namespace Otter {
         /// <returns>The field value or the value to return if the field is not found.</returns>
         public static object GetFieldValue(object src, string fieldName, object returnOnNull) {
             if (src == null) return returnOnNull;
-            if (!Util.HasField(src, fieldName)) return returnOnNull;
+            if (!HasField(src, fieldName)) return returnOnNull;
             return GetFieldValue(src, fieldName);
         }
 
@@ -1276,8 +1276,8 @@ namespace Otter {
         /// <returns>The MD5 hash of the string.</returns>
         public static string MD5Hash(string input) {
             // step 1, calculate MD5 hash from input
-            MD5 md5 = System.Security.Cryptography.MD5.Create();
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+            MD5 md5 = MD5.Create();
+            byte[] inputBytes = Encoding.ASCII.GetBytes(input);
             byte[] hash = md5.ComputeHash(inputBytes);
 
             // step 2, convert byte array to hex string
@@ -1355,7 +1355,7 @@ namespace Otter {
         /// <param name="e">The enum value.</param>
         /// <returns>The value of the enum following the final period.</returns>
         public static string EnumValueToBasicString(Enum e) {
-            var split = Util.EnumValueToString(e).Split('.');
+            var split = EnumValueToString(e).Split('.');
             return split[split.Length - 1];
         }
 
@@ -1402,7 +1402,7 @@ namespace Otter {
         /// <param name="y2">The second Y position of the line.</param>
         /// <returns>The distance from the point to the line.</returns>
         public static float DistanceLinePoint(float x, float y, float x1, float y1, float x2, float y2) {
-            if (x1 == x2 && y1 == y2) return Util.Distance(x, y, x1, y1);
+            if (x1 == x2 && y1 == y2) return Distance(x, y, x1, y1);
 
             var px = x2 - x1;
             var py = y2 - y1;
@@ -1536,10 +1536,10 @@ namespace Otter {
             int a = b - 1;
             int c = b + 1;
             int d = c + 1;
-            a = (int)Util.Clamp(a, 0, path.Length - 1);
-            b = (int)Util.Clamp(b, 0, path.Length - 1);
-            c = (int)Util.Clamp(c, 0, path.Length - 1);
-            d = (int)Util.Clamp(d, 0, path.Length - 1);
+            a = (int)Clamp(a, 0, path.Length - 1);
+            b = (int)Clamp(b, 0, path.Length - 1);
+            c = (int)Clamp(c, 0, path.Length - 1);
+            d = (int)Clamp(d, 0, path.Length - 1);
             float i = 1f / (path.Length - 1);
             t = (t - b * i) / i;
             return new Vector2(

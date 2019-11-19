@@ -5,9 +5,17 @@
     <e p="C:\Users\felip\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_JaquinAdventures.2006691280.00" t="ExcludeRecursive" />
     <e p="C:\Users\felip\Documents\GitHub\JaquinsQuest" t="IncludeFlat">
       <e p="JaquinAdventures" t="IncludeRecursive">
+        <e p="Abstractions" t="Include">
+          <e p="ButtonBase.cs" t="Include" />
+          <e p="IApplication.cs" t="Include" />
+          <e p="IClickHandler.cs" t="Include" />
+          <e p="IInputHandler.cs" t="Include" />
+          <e p="IMovement.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Components" t="Include">
           <e p="ClampComponent.cs" t="Include" />
+          <e p="ClickHandler.cs" t="Include" />
           <e p="Movement.cs" t="Include" />
           <e p="MovementIA.cs" t="Include" />
           <e p="MovementWithSprint.cs" t="Include" />
@@ -19,18 +27,16 @@
           </e>
           <e p="GameManager.cs" t="Include" />
         </e>
+        <e p="DataStructs" t="Include">
+          <e p="StateColors.cs" t="Include" />
+        </e>
         <e p="Entities" t="Include">
           <e p="Button.cs" t="Include" />
-          <e p="ButtonBase.cs" t="Include" />
+          <e p="ButtonComponent.cs" t="Include" />
           <e p="Player.cs" t="Include" />
         </e>
         <e p="Factories" t="Include">
           <e p="Bullet.cs" t="Include" />
-        </e>
-        <e p="Interfaces" t="Include">
-          <e p="IApplication.cs" t="Include" />
-          <e p="IInputHandler.cs" t="Include" />
-          <e p="IMovement.cs" t="Include" />
         </e>
         <e p="JaquinAdventures.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive" />
@@ -135,6 +141,7 @@
           <e p="Transformation.cs" t="Include" />
           <e p="Vert.cs" t="Include" />
         </e>
+        <e p="Interfaces" t="Include" />
         <e p="libsndfile-1.dll" t="Include" />
         <e p="obj" t="ExcludeRecursive" />
         <e p="openal32.dll" t="Include" />

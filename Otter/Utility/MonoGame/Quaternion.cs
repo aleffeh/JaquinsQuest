@@ -44,18 +44,18 @@ namespace Otter {
 
 
         public Quaternion(float x, float y, float z, float w) {
-            this.X = x;
-            this.Y = y;
-            this.Z = z;
-            this.W = w;
+            X = x;
+            Y = y;
+            Z = z;
+            W = w;
         }
 
 
         public Quaternion(Vector3 vectorPart, float scalarPart) {
-            this.X = vectorPart.X;
-            this.Y = vectorPart.Y;
-            this.Z = vectorPart.Z;
-            this.W = scalarPart;
+            X = vectorPart.X;
+            Y = vectorPart.Y;
+            Z = vectorPart.Z;
+            W = scalarPart;
         }
 
         public static Quaternion Identity {
@@ -127,9 +127,9 @@ namespace Otter {
 
         //Añadida por Syderis
         public void Conjugate() {
-            this.X = -this.X;
-            this.Y = -this.Y;
-            this.Z = -this.Z;
+            X = -X;
+            Y = -Y;
+            Z = -Z;
         }
 
         //Añadida por Syderis
@@ -350,19 +350,19 @@ namespace Otter {
         public override bool Equals(object obj) {
             bool flag = false;
             if (obj is Quaternion) {
-                flag = this.Equals((Quaternion)obj);
+                flag = Equals((Quaternion)obj);
             }
             return flag;
         }
 
 
         public bool Equals(Quaternion other) {
-            return ((((this.X == other.X) && (this.Y == other.Y)) && (this.Z == other.Z)) && (this.W == other.W));
+            return ((((X == other.X) && (Y == other.Y)) && (Z == other.Z)) && (W == other.W));
         }
 
 
         public override int GetHashCode() {
-            return (((this.X.GetHashCode() + this.Y.GetHashCode()) + this.Z.GetHashCode()) + this.W.GetHashCode());
+            return (((X.GetHashCode() + Y.GetHashCode()) + Z.GetHashCode()) + W.GetHashCode());
         }
 
 
@@ -388,13 +388,13 @@ namespace Otter {
         }
 
         public float Length() {
-            float num = (((this.X * this.X) + (this.Y * this.Y)) + (this.Z * this.Z)) + (this.W * this.W);
+            float num = (((X * X) + (Y * Y)) + (Z * Z)) + (W * W);
             return (float)Math.Sqrt((double)num);
         }
 
 
         public float LengthSquared() {
-            return ((((this.X * this.X) + (this.Y * this.Y)) + (this.Z * this.Z)) + (this.W * this.W));
+            return ((((X * X) + (Y * Y)) + (Z * Z)) + (W * W));
         }
 
 
@@ -604,12 +604,12 @@ namespace Otter {
 
 
         public void Normalize() {
-            float num2 = (((this.X * this.X) + (this.Y * this.Y)) + (this.Z * this.Z)) + (this.W * this.W);
+            float num2 = (((X * X) + (Y * Y)) + (Z * Z)) + (W * W);
             float num = 1f / ((float)Math.Sqrt((double)num2));
-            this.X *= num;
-            this.Y *= num;
-            this.Z *= num;
-            this.W *= num;
+            X *= num;
+            Y *= num;
+            Z *= num;
+            W *= num;
         }
 
 
@@ -738,13 +738,13 @@ namespace Otter {
         public override string ToString() {
             System.Text.StringBuilder sb = new System.Text.StringBuilder(32);
             sb.Append("{X:");
-            sb.Append(this.X);
+            sb.Append(X);
             sb.Append(" Y:");
-            sb.Append(this.Y);
+            sb.Append(Y);
             sb.Append(" Z:");
-            sb.Append(this.Z);
+            sb.Append(Z);
             sb.Append(" W:");
-            sb.Append(this.W);
+            sb.Append(W);
             sb.Append("}");
             return sb.ToString();
         }
@@ -756,7 +756,7 @@ namespace Otter {
         }
 
         internal void ToMatrix(out Matrix matrix) {
-            Quaternion.ToMatrix(this, out matrix);
+            ToMatrix(this, out matrix);
         }
 
         internal static void ToMatrix(Quaternion quaternion, out Matrix matrix) {

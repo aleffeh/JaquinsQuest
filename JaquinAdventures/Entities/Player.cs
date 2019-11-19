@@ -2,10 +2,10 @@
 using Autofac.Core;
 using JaquinAdventures.Components;
 using JaquinAdventures.Factories;
-using JaquinAdventures.Interfaces;
+using JaquinAdventures.Abstractions;
 using Otter;
 
-namespace JaquinAdventures.Entities
+namespace JaquinAdventures.Abstractions
 {
     public class Player : Entity
     {
@@ -14,10 +14,13 @@ namespace JaquinAdventures.Entities
         public IMovement Movement { get; set; }
         public Image Sprite { get; set; }
 
+        private Vector2 _shootPos;
+
         public Player()
         {
             Sprite = Image.CreateCircle(64, Color.White);
             OnRender += OnRenderGraphic;
+            
         }
 
         public override void Start()
@@ -25,11 +28,14 @@ namespace JaquinAdventures.Entities
             AddComponent((Component) Movement);
             AddComponent(ClampComponent);
 
+            _shootPos = new Vector2(Graphic.HalfWidth,Graphic.HalfHeight);
+
         }
 
         public void Shoot()
         {
-            Scene.Add(BulletFactory.Invoke(new Vector2(1,1),Position,300,10,5 ));
+            Scene.Add(BulletFactory.Invoke(new Vector2(1,1),_shootPos,300,10,5,5
+            ));
         }
 
         private void OnRenderGraphic()

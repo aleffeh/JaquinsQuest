@@ -112,23 +112,23 @@ namespace Otter {
         #region Constructors
 
         public Vector3(float x, float y, float z) {
-            this.X = x;
-            this.Y = y;
-            this.Z = z;
+            X = x;
+            Y = y;
+            Z = z;
         }
 
 
         public Vector3(float value) {
-            this.X = value;
-            this.Y = value;
-            this.Z = value;
+            X = value;
+            Y = value;
+            Z = value;
         }
 
 
         public Vector3(Vector2 value, float z) {
-            this.X = value.X;
-            this.Y = value.Y;
-            this.Z = z;
+            X = value.X;
+            Y = value.Y;
+            Z = z;
         }
 
 
@@ -278,7 +278,7 @@ namespace Otter {
         }
 
         public override int GetHashCode() {
-            return (int)(this.X + this.Y + this.Z);
+            return (int)(X + Y + Z);
         }
 
         public static Vector3 Hermite(Vector3 value1, Vector3 tangent1, Vector3 value2, Vector3 tangent2, float amount) {
@@ -457,11 +457,11 @@ namespace Otter {
         public override string ToString() {
             StringBuilder sb = new StringBuilder(32);
             sb.Append("{X:");
-            sb.Append(this.X);
+            sb.Append(X);
             sb.Append(" Y:");
-            sb.Append(this.Y);
+            sb.Append(Y);
             sb.Append(" Z:");
-            sb.Append(this.Z);
+            sb.Append(Z);
             sb.Append("}");
             return sb.ToString();
         }

@@ -53,7 +53,7 @@ namespace Otter {
         /// </summary>
         public object Target { get; private set; }
 
-        private Tween(object target, float duration, float delay, Tween.TweenerImpl parent) {
+        private Tween(object target, float duration, float delay, TweenerImpl parent) {
             Target = target;
             Duration = duration;
             Delay = delay;
@@ -100,8 +100,8 @@ namespace Otter {
                         return;
                 }
 
-                if (time == 0 && timesRepeated == 0 && begin != null)
-                    begin();
+                if (time == 0 && timesRepeated == 0)
+                    begin?.Invoke();
 
                 time += elapsed;
                 float setTimeTo = time;
@@ -144,11 +144,10 @@ namespace Otter {
                 if (time == 0 && behavior.HasFlag(GlideLerper.Behavior.Reflect))
                     Reverse();
 
-                if (update != null)
-                    update();
+                update?.Invoke();
 
-                if (doComplete && complete != null)
-                    complete();
+                if (doComplete)
+                    complete?.Invoke();
             }
         }
 

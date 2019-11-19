@@ -181,7 +181,7 @@ namespace Otter {
             }
 
             if (name == "") {
-                Name = this.GetType().Name;
+                Name = GetType().Name;
             }
             else {
                 Name = name;
@@ -721,9 +721,7 @@ namespace Otter {
             Colliders.Add(c);
             c.Entity = this;
             c.Added();
-            if (Scene != null) {
-                Scene.AddColliderInternal(c);
-            }
+            Scene?.AddColliderInternal(c);
             return c;
         }
 
@@ -737,9 +735,7 @@ namespace Otter {
                 c.Removed();
                 c.Entity = null;
 
-                if (Scene != null) {
-                    Scene.RemoveColliderInternal(c);
-                }
+                Scene?.RemoveColliderInternal(c);
             }
             return c;
         }
@@ -1056,8 +1052,7 @@ namespace Otter {
         internal void StartInternal()
         {
             Start();
-            if (OnStart != null)
-                OnStart();
+            OnStart?.Invoke();
         }
 
         internal void UpdateFirstInternal() {
@@ -1071,9 +1066,8 @@ namespace Otter {
             foreach (var c in Components) {
                 c.UpdateFirst();
             }
-            if (OnUpdateFirst != null) {
-                OnUpdateFirst();
-            }
+
+            OnUpdateFirst?.Invoke();
             UpdateFirst();
         }
 
@@ -1086,9 +1080,7 @@ namespace Otter {
             }
 
             UpdateLast();
-            if (OnUpdateLast != null) {
-                OnUpdateLast();
-            }
+            OnUpdateLast?.Invoke();
 
             foreach (var g in Graphics) {
                 g.Update();
@@ -1108,9 +1100,8 @@ namespace Otter {
             foreach (var c in Components) {
                 c.Update();
             }
-            if (OnUpdate != null) {
-                OnUpdate();
-            }
+
+            OnUpdate?.Invoke();
             Tweener.Update(Game.DeltaTime);
 
             Update();
@@ -1167,9 +1158,7 @@ namespace Otter {
 
             Render();
 
-            if (OnRender != null) {
-                OnRender();
-            }
+            OnRender?.Invoke();
 
             foreach (var c in Components) {
                 if (c.RenderAfterEntity) {

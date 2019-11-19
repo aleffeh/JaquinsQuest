@@ -93,9 +93,7 @@ namespace Otter {
 
             MoveXY((int)Speed.X, (int)Speed.Y, Collider);
 
-            if (OnMove != null) {
-                OnMove();
-            }
+            OnMove?.Invoke();
         }
 
         /// <summary>

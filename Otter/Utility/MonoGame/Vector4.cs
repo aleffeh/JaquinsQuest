@@ -88,31 +88,31 @@ namespace Otter {
         #region Constructors
 
         public Vector4(float x, float y, float z, float w) {
-            this.X = x;
-            this.Y = y;
-            this.Z = z;
-            this.W = w;
+            X = x;
+            Y = y;
+            Z = z;
+            W = w;
         }
 
         public Vector4(Vector2 value, float z, float w) {
-            this.X = value.X;
-            this.Y = value.Y;
-            this.Z = z;
-            this.W = w;
+            X = value.X;
+            Y = value.Y;
+            Z = z;
+            W = w;
         }
 
         public Vector4(Vector3 value, float w) {
-            this.X = value.X;
-            this.Y = value.Y;
-            this.Z = value.Z;
-            this.W = w;
+            X = value.X;
+            Y = value.Y;
+            Z = value.Z;
+            W = w;
         }
 
         public Vector4(float value) {
-            this.X = value;
-            this.Y = value;
-            this.Z = value;
-            this.W = value;
+            X = value;
+            Y = value;
+            Z = value;
+            W = value;
         }
 
         #endregion
@@ -280,14 +280,14 @@ namespace Otter {
         }
 
         public bool Equals(Vector4 other) {
-            return this.W == other.W
-                && this.X == other.X
-                && this.Y == other.Y
-                && this.Z == other.Z;
+            return W == other.W
+                && X == other.X
+                && Y == other.Y
+                && Z == other.Z;
         }
 
         public override int GetHashCode() {
-            return (int)(this.W + this.X + this.Y + this.Y);
+            return (int)(W + X + Y + Y);
         }
 
         public static Vector4 Hermite(Vector4 value1, Vector4 tangent1, Vector4 value2, Vector4 tangent2, float amount) {
@@ -517,13 +517,13 @@ namespace Otter {
         public override string ToString() {
             StringBuilder sb = new StringBuilder(32);
             sb.Append("{X:");
-            sb.Append(this.X);
+            sb.Append(X);
             sb.Append(" Y:");
-            sb.Append(this.Y);
+            sb.Append(Y);
             sb.Append(" Z:");
-            sb.Append(this.Z);
+            sb.Append(Z);
             sb.Append(" W:");
-            sb.Append(this.W);
+            sb.Append(W);
             sb.Append("}");
             return sb.ToString();
         }

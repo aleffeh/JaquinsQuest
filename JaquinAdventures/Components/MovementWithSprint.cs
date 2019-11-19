@@ -1,4 +1,5 @@
-﻿using JaquinAdventures.Interfaces;
+﻿using JaquinAdventures.Abstractions;
+using JaquinAdventures.Entities;
 using Otter;
 
 namespace JaquinAdventures.Components
@@ -8,12 +9,12 @@ namespace JaquinAdventures.Components
         private float _speedMultiplier = 1;
         private readonly IInputHandler _inputHandler;
         private const float Speed = 10;
-        private Game _game;
+        private readonly Game _game;
 
         public MovementWithSprint(IInputHandler inputHandler,Game game)
         {
-            this._game = game;
-            this._inputHandler = inputHandler;
+            _game = game;
+            _inputHandler = inputHandler;
         }
 
         public override void Update()

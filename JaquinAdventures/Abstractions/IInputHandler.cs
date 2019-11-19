@@ -1,6 +1,6 @@
 ﻿using Otter;
 
-namespace JaquinAdventures.Interfaces
+namespace JaquinAdventures.Entities
 {
     public interface IInputHandler
     {

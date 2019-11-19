@@ -216,8 +216,8 @@ namespace Otter {
             // It is expected that 0 < amount < 1
             // If amount < 0, return value1
             // If amount > 1, return value2
-            float result = MathHelper.Clamp(amount, 0f, 1f);
-            result = MathHelper.Hermite(value1, 0f, value2, 0f, result);
+            float result = Clamp(amount, 0f, 1f);
+            result = Hermite(value1, 0f, value2, 0f, result);
 
             return result;
         }

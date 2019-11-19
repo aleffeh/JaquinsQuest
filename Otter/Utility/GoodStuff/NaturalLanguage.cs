@@ -398,7 +398,7 @@ namespace Otter {
 
     public static class ArrayExtensions {
         [ThreadStatic]
-        static System.Random randomNumberGenerator = new Random(DateTime.Now.Millisecond + System.Threading.Thread.CurrentThread.GetHashCode());
+        static Random randomNumberGenerator = new Random(DateTime.Now.Millisecond + System.Threading.Thread.CurrentThread.GetHashCode());
 
         /// <summary>
         /// Returns the first index in the array where the target exists.  If the target cannot be found, returns -1.
@@ -492,7 +492,7 @@ namespace Otter {
 
     public static class ListExtensions {
         [ThreadStatic]
-        static System.Random randomNumberGenerator = new Random(DateTime.Now.Millisecond + System.Threading.Thread.CurrentThread.GetHashCode());
+        static Random randomNumberGenerator = new Random(DateTime.Now.Millisecond + System.Threading.Thread.CurrentThread.GetHashCode());
 
         /// <summary>
         /// Returns a sub-section of the current list, starting at the specified index and continuing to the end of the list.
@@ -733,8 +733,8 @@ namespace Otter {
         /// Returns an array of all concrete subclasses of the provided type.
         /// </summary>
         public static Type[] Subclasses(this Type type) {
-            var typeList = new List<System.Type>();
-            System.AppDomain.CurrentDomain.GetAssemblies().Each(a => typeList.AddRange(a.GetTypes()));
+            var typeList = new List<Type>();
+            AppDomain.CurrentDomain.GetAssemblies().Each(a => typeList.AddRange(a.GetTypes()));
             return typeList.Where(t => t.IsSubclassOf(type) && !t.IsAbstract).ToArray();
         }
 
@@ -742,8 +742,8 @@ namespace Otter {
         /// Returns an array of the provided type and all concrete subclasses of that type.
         /// </summary>
         public static Type[] TypeAndSubclasses(this Type type) {
-            var typeList = new List<System.Type>();
-            System.AppDomain.CurrentDomain.GetAssemblies().Each(a => typeList.AddRange(a.GetTypes()));
+            var typeList = new List<Type>();
+            AppDomain.CurrentDomain.GetAssemblies().Each(a => typeList.AddRange(a.GetTypes()));
             return typeList.Where(t => (t == type || t.IsSubclassOf(type)) && !t.IsAbstract).ToArray();
         }
     }

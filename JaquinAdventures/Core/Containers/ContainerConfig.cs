@@ -1,8 +1,8 @@
 ﻿using Autofac;
 using JaquinAdventures.Components;
-using JaquinAdventures.Entities;
 using JaquinAdventures.Factories;
-using JaquinAdventures.Interfaces;
+using JaquinAdventures.Abstractions;
+using JaquinAdventures.Entities;
 using JaquinAdventures.Scenes;
 using Otter;
 
@@ -19,7 +19,7 @@ namespace JaquinAdventures.Core.Containers
             //Instantiate all th
             builder.RegisterInstance(new Game("Jaquin Adventures", 1280, 720,120)
                 {
-                Color = Color.Magenta,
+                Color = Color.FromBytes(149, 202, 252),
                 MouseVisible = true
                 }).SingleInstance();
             
@@ -28,12 +28,13 @@ namespace JaquinAdventures.Core.Containers
             builder.RegisterInstance(Game.Instance.Debugger);
             builder.RegisterInstance(Game.Instance.Tweener);
             
-            builder.RegisterType<MainScene>().AsSelf();
+            builder.RegisterType<MainScene>().AsSelf().PropertiesAutowired();
             builder.RegisterType<Player>().SingleInstance().PropertiesAutowired();
             builder.RegisterType<ButtonBase>();
             builder.RegisterType<ClampComponent<Player>>();
-            
+            builder.RegisterType<ClickHandler>().As<IClickHandler>();
             builder.RegisterType<Entities.Button>();
+            builder.RegisterType<ButtonComponent>().PropertiesAutowired();
             builder.RegisterType<Bullet>();
             
             builder.RegisterType<WasdInput>().As<IInputHandler>();

@@ -15,7 +15,6 @@ namespace JaquinAdventures.Components
             
             Entity.X = MathHelper.Clamp(Entity.X, 0, game.WindowWidth - Entity.Graphic.Width);
             Entity.Y = MathHelper.Clamp(Entity.Y, 0, game.WindowHeight - Entity.Graphic.Height);
-            base.Update();
         }
     }
 }
